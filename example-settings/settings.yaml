@@ -1,0 +1,7 @@
+zulipUserName: "lambdabot-bot@myteam.zulipchat.com"
+zulipApiKey: "abc123abc123abc123abc123abc123ab"
+zulipBaseUrl: "https://myteam.zulipchat.com/api/v1"
+floodProtectionOutputLength: 2000
+botStreams:
+  - bot-testing
+  - haskell
