@@ -197,12 +197,12 @@ runZulipLambdabot settings = do
       -- Private messages one sends also appear as message events.
       -- Ignore them to avoid generating an infinite stream of messages.
       if userId sender == myUserId
-        then liftIO $ putStrLn "Got message from myself, ignoring"
+        then say "Got message from myself, ignoring"
         else
           -- Only answer requests that go to the right stream.
           case messageDisplayRecipient msg of
             Right _user -> do
-              liftIO $ putStrLn "Got direct message to user, ignoring"
+              say "Got direct message to user, ignoring"
             Left stream | stream `Set.member` botStreamsSet -> do
 
               -- Only answer requests that start with the evaluation symbol.
@@ -217,7 +217,7 @@ runZulipLambdabot settings = do
                   return ()
 
             Left _stream -> do
-              liftIO $ putStrLn "Got message to non-'haskell' stream, ignoring"
+              say "Got message to non-'haskell' stream, ignoring"
 
 
 -- | Command line arguments for this program.
