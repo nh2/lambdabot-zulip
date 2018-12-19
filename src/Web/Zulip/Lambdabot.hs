@@ -206,7 +206,7 @@ runZulipLambdabot settings = do
             Left stream | stream `Set.member` botStreamsSet -> do
 
               -- Only answer requests that start with the evaluation symbol.
-              case T.stripPrefix "> " (messageContent msg) of
+              case T.stripPrefix ">" (messageContent msg) of
                 Nothing -> return ()
                 Just input -> do
                   -- Run interpreter
